@@ -47,11 +47,11 @@ process etoki_assemble {
 workflow {
 
     Channel
-        .of (fastq_1)
+        .of(file(params.fastq_1, type: "file", checkIfExists:true))
         .set { fastq_1_ch }
 
     Channel
-        .of (fastq_2)
+        .of(file(params.fastq_2, type: "file", checkIfExists:true))
         .set { fastq_2_ch }
 
     
