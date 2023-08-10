@@ -1,6 +1,6 @@
 process etoki_prepare {
 
-    label 'process medium'
+    label 'process_medium'
 
     publishDir "${params.out_dir}/${sample_uuid}/trimmed_reads/", mode: 'copy'
 
@@ -24,7 +24,7 @@ process etoki_prepare {
 
 process etoki_assemble {
 
-    label 'process medium'
+    label 'process_medium'
 
     publishDir "${params.out_dir}/${sample_uuid}/assembly/", mode: 'copy'
 
