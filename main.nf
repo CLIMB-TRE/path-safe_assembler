@@ -47,8 +47,13 @@ process etoki_assemble {
 workflow {
 
     Channel
-        .of (fastq_1, fastq_2)
-        .set { fastq_1_ch, fastq_2_ch }
+        .of (fastq_1)
+        .set { fastq_1_ch }
+
+    Channel
+        .of (fastq_2)
+        .set { fastq_2_ch }
+
     
     etoki_prepare(sample_uuid, fastq_1_ch, fastq_2_ch) | etoki_assemble
 
