@@ -55,6 +55,6 @@ workflow {
         .set { fastq_2_ch }
 
     
-    etoki_prepare(sample_uuid, fastq_1_ch, fastq_2_ch) | etoki_assemble
+    etoki_prepare(params.sample_uuid, fastq_1_ch, fastq_2_ch) | etoki_assemble
 
 }
