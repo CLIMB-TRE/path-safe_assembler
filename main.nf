@@ -18,7 +18,7 @@ process etoki_prepare {
 
     script:
     """
-    python EToKi.py prepare --pe ${fastq_1},${fastq_2} -p ${sample_uuid} -m $task.memory
+    EToKi.py prepare --pe ${fastq_1},${fastq_2} -p ${sample_uuid} -m $task.memory
     """
 }
 
@@ -40,7 +40,7 @@ process etoki_assemble {
 
     script:
     """
-    python EToKi.py assemble --pe ${fastq_1},${fastq_2} -p ${sample_uuid}
+    EToKi.py assemble --pe ${fastq_1},${fastq_2} -p ${sample_uuid}
     """
 }
 
