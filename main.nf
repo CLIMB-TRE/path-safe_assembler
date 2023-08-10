@@ -18,7 +18,7 @@ process etoki_prepare {
 
     script:
     """
-    EToKi.py prepare --pe ${fastq_1},${fastq_2} -p ${sample_uuid} -m $task.memory
+    EToKi.py prepare --pe ${fastq_1},${fastq_2} -p ${sample_uuid}
     """
 }
 
