@@ -25,6 +25,7 @@ process etoki_prepare {
 process etoki_assemble {
 
     label 'process_medium'
+    label 'process_high_memory'
 
     publishDir "${params.out_dir}/${sample_uuid}/assembly/", mode: 'copy'
 
