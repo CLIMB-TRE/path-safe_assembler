@@ -41,7 +41,7 @@ process etoki_assemble {
 
     script:
     """
-    EToKi.py assemble --pe ${fastq_1},${fastq_2} -p ${sample_uuid}
+    EToKi.py assemble --pe ${fastq_1},${fastq_2} -p ${sample_uuid} --n_cpus $task.cpus --kraken
     """
 }
 
