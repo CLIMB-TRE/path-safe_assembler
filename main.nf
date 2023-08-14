@@ -4,7 +4,7 @@ process etoki_prepare {
 
     publishDir "${params.out_dir}/${sample_uuid}/trimmed_reads/", mode: 'copy'
 
-    container 'biocontainers/etoki:1.2.3--hdfd78af_0'
+    container 'biowilko/etoki:0.1'
 
     input:
     val sample_uuid
@@ -29,7 +29,7 @@ process etoki_assemble {
 
     publishDir "${params.out_dir}/${sample_uuid}/assembly/", mode: 'copy'
 
-    container 'biocontainers/etoki:1.2.3--hdfd78af_0'
+    container 'biowilko/etoki:0.1'
 
     input:
     val sample_uuid
@@ -41,7 +41,7 @@ process etoki_assemble {
 
     script:
     """
-    EToKi.py assemble --pe ${fastq_1},${fastq_2} -p ${sample_uuid} --kraken
+    EToKi.py assemble --pe ${fastq_1},${fastq_2} -p ${sample_uuid}
     """
 }
 
