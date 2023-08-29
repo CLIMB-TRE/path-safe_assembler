@@ -4,9 +4,7 @@ process etoki_prepare {
 
     publishDir "${params.out_dir}/${sample_uuid}/trimmed_reads/", mode: 'copy'
 
-    container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'library://biowilko/etoki/etoki:0.1' :
-        'biocontainers/etoki:1.2.3--hdfd78af_0' }"
+    container 'biocontainers/etoki:1.2.3--hdfd78af_0'
 
     input:
     val sample_uuid
@@ -20,7 +18,7 @@ process etoki_prepare {
 
     script:
     """
-    /bin/sh EToKi.py prepare --pe ${fastq_1},${fastq_2} -p ${sample_uuid}
+    EToKi.py prepare --pe ${fastq_1},${fastq_2} -p ${sample_uuid}
     """
 }
 
@@ -31,9 +29,7 @@ process etoki_assemble {
 
     publishDir "${params.out_dir}/${sample_uuid}/assembly/", mode: 'copy'
 
-    container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
-        'library://biowilko/etoki/etoki:0.1' :
-        'biocontainers/etoki:1.2.3--hdfd78af_0' }"
+    container 'biocontainers/etoki:1.2.3--hdfd78af_0'
 
     input:
     val sample_uuid
@@ -45,7 +41,7 @@ process etoki_assemble {
 
     script:
     """
-    /bin/sh EToKi.py assemble --pe ${fastq_1},${fastq_2} -p ${sample_uuid}
+    EToKi.py assemble --pe ${fastq_1},${fastq_2} -p ${sample_uuid}
     """
 }
 
