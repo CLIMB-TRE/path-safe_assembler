@@ -37,7 +37,7 @@ process etoki_assemble {
     path fastq_2
 
     output:
-    path "${sample_uuid}/etoki.mapping.reference.fasta"
+    path "EToKi_spades.result.fasta"
 
     script:
     """
