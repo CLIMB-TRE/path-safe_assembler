@@ -4,7 +4,7 @@ process etoki_prepare {
 
     publishDir "${params.out_dir}/${sample_uuid}/trimmed_reads/", mode: 'copy'
 
-    container 'biowilko/etoki:1.0'
+    container 'biowilko/etoki:1.1'
 
     input:
     val sample_uuid
@@ -29,7 +29,7 @@ process etoki_assemble {
 
     publishDir "${params.out_dir}/${sample_uuid}/assembly/", mode: 'copy'
 
-    container 'biowilko/etoki:1.0'
+    container 'biowilko/etoki:1.1'
 
     input:
     val sample_uuid
