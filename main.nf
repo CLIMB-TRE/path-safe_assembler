@@ -31,6 +31,8 @@ process etoki_assemble {
 
     container 'biowilko/etoki:1.1'
 
+    errorStrategy {task.exitStatus == 155 ? "ignore" : "terminate"}
+
     input:
     val sample_uuid
     path fastq_1
