@@ -28,7 +28,7 @@ process etoki_assemble {
     label 'process_high_memory'
 
     publishDir "${params.out_dir}/${sample_uuid}/assembly/", mode: "copy", pattern: "${sample_uuid}.result.fasta"
-    publishDir "${params.out_dir}/${sample_uuid}/etoki_outputs/", mode: "copy", pattern: "${sample_uuid}/*"
+    publishDir "${params.out_dir}/${sample_uuid}/etoki_outputs/", mode: "copy", pattern: "${sample_uuid}"
 
     container 'biowilko/etoki:1.1'
 
@@ -41,7 +41,7 @@ process etoki_assemble {
 
     output:
     path "${sample_uuid}.result.fasta"
-    path "${sample_uuid}/*"
+    path "${sample_uuid}"
 
     script:
     """
