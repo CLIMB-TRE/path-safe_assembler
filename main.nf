@@ -41,7 +41,7 @@ process etoki_assemble {
 
     output:
     path "${sample_uuid}.result.fasta"
-    path "${sample_uuid}"
+    path "${sample_uuid}/*"
 
     script:
     """
