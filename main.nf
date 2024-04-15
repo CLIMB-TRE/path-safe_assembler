@@ -4,7 +4,7 @@ process etoki_prepare {
 
     publishDir "${params.out_dir}/${sample_uuid}/trimmed_reads/", mode: 'copy'
 
-    container 'biowilko/etoki:1.1'
+    container 'biowilko/etoki:1.2'
 
     input:
     val sample_uuid
@@ -30,9 +30,9 @@ process etoki_assemble {
     publishDir "${params.out_dir}/${sample_uuid}/assembly/", mode: "copy", pattern: "${sample_uuid}.result.fasta"
     publishDir "${params.out_dir}/${sample_uuid}/etoki_outputs/", mode: "copy", pattern: "${sample_uuid}"
 
-    container 'biowilko/etoki:1.1'
+    container 'biowilko/etoki:1.2'
 
-    errorStrategy {task.exitStatus == 155 ? "ignore" : "terminate"}
+    // errorStrategy {task.exitStatus == 155 ? "ignore" : "terminate"}
 
     input:
     val sample_uuid
