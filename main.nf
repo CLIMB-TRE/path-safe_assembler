@@ -25,14 +25,13 @@ process etoki_prepare {
 process etoki_assemble {
 
     label 'process_medium'
-    label 'process_high_memory'
 
     publishDir "${params.out_dir}/${sample_uuid}/assembly/", mode: "copy", pattern: "${sample_uuid}.result.fasta"
     publishDir "${params.out_dir}/${sample_uuid}", mode: "copy", pattern: "etoki_outputs"
 
     container 'biowilko/etoki:1.2.1'
 
-    // errorStrategy {task.exitStatus == 155 ? "ignore" : "terminate"}
+    errorStrategy {task.exitStatus == 255 ? "ignore" : "terminate"}
 
     input:
     val sample_uuid
