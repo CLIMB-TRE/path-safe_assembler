@@ -27,7 +27,7 @@ process etoki_assemble {
     label 'process_medium'
 
     publishDir "${params.out_dir}/${sample_uuid}/assembly/", mode: "copy", pattern: "${sample_uuid}.result.fasta"
-    publishDir "${params.out_dir}/${sample_uuid}", mode: "copy", pattern: "etoki_outputs"
+    publishDir "${params.out_dir}/${sample_uuid}", mode: "copy", pattern: "${sample_uuid}", saveAs: "etoki_outputs"
 
     container 'biowilko/etoki:1.2.1'
 
@@ -40,7 +40,7 @@ process etoki_assemble {
 
     output:
     path "${sample_uuid}.result.fasta"
-    path "etoki_outputs"
+    path "${sample_uuid}"
 
     script:
     """
@@ -49,8 +49,6 @@ process etoki_assemble {
     if [ -f ${sample_uuid}/etoki.fasta ]; then
         mv ${sample_uuid}/etoki.fasta ${sample_uuid}.result.fasta
     fi
-
-    mv ${sample_uuid} etoki_outputs
     """
 }
 
