@@ -31,7 +31,7 @@ process etoki_prepare {
 
     script:
     """
-    EToKi.py prepare --pe ${fastq_1},${fastq_2} -p ${sample_uuid} --n_cpu ${task.cpus} --max-bases ${params.max_bases}
+    EToKi.py prepare --pe ${fastq_1},${fastq_2} -p ${sample_uuid} --n_cpu ${task.cpus} --max_base ${params.max_bases}
     """
 }
 
