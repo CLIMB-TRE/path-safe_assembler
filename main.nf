@@ -43,7 +43,7 @@ process etoki_assemble {
 
     container 'biowilko/etoki:1.2.1'
 
-    errorStrategy { task.exitStatus in ((255) + 21) ? "ignore" : "terminate" }
+    errorStrategy { task.exitStatus == 255 ? 'ignore' : (task.exitStatus == 21 ? 'ignore' : 'terminate') }
 
     input:
     val sample_uuid
